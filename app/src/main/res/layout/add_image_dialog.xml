@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:padding="@dimen/_10sdp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Image Action"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_22sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"/>
+
+
+    <ImageButton
+        android:id="@+id/ibCamera"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_camera"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageButton
+        android:id="@+id/ibGallery"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/white"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_gallery"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Camera"
+        android:textColor="@color/primary_color"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="@+id/ibGallery"
+        app:layout_constraintStart_toStartOf="@+id/ibGallery"
+        app:layout_constraintTop_toBottomOf="@+id/ibGallery" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gallery"
+        android:textColor="@color/primary_color"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="@+id/ibCamera"
+        app:layout_constraintStart_toStartOf="@+id/ibCamera"
+        app:layout_constraintTop_toBottomOf="@+id/ibCamera" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
