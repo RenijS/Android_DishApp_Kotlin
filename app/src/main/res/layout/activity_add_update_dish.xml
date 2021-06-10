@@ -169,6 +169,8 @@
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:hint="Cooking Time"
                     android:textSize="@dimen/_18sdp"
                     android:textColorHint="#37474f"/>
