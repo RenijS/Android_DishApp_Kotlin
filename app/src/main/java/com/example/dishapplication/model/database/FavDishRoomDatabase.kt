@@ -8,6 +8,9 @@ import com.example.dishapplication.model.entities.FavDish
 
 @Database(entities = arrayOf(FavDish::class), version = 1, exportSchema = false)
 abstract class FavDishRoomDatabase: RoomDatabase() {
+
+    abstract fun favDishDao(): FavDishDao
+
     companion object {
         @Volatile
         private var INSTANCE: FavDishRoomDatabase? = null
