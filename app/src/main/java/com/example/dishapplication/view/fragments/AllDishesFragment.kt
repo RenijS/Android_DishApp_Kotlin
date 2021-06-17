@@ -8,10 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dishapplication.R
 import com.example.dishapplication.application.FavDishApplication
 import com.example.dishapplication.databinding.FragmentAllDishesBinding
 import com.example.dishapplication.view.activities.AddUpdateDishActivity
+import com.example.dishapplication.view.adapters.AllDishesAdapter
 import com.example.dishapplication.viewmodel.FavDishViewModel
 import com.example.dishapplication.viewmodel.FavDishViewModelFactory
 import com.example.dishapplication.viewmodel.HomeViewModel
@@ -43,27 +45,28 @@ class AllDishesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentAllDishesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.rvAllDishes.layoutManager = GridLayoutManager(requireActivity(), 2)
+        val allDishAdapter = AllDishesAdapter(this)
+        binding.rvAllDishes.adapter = allDishAdapter
+
         mFavDishViewModel.allDishList.observe(viewLifecycleOwner){
             dishes ->
                 dishes.let {
-                    for (item in it){
-                        
+                    if (it.isNotEmpty()){
+                        binding.tvNoItem.visibility = View.GONE
+                        binding.rvAllDishes.visibility = View.VISIBLE
+
+                        allDishAdapter.dishesList(it)
+                    } else{
+                        binding.tvNoItem.visibility = View.VISIBLE
+                        binding.rvAllDishes.visibility = View.GONE
                     }
                 }
         }

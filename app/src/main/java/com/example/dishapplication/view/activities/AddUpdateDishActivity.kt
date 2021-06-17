@@ -171,7 +171,8 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
                         )
                         mFavDishViewModel.insert(favDishDetails)
                         Toast.makeText(this, "Successfully added", Toast.LENGTH_SHORT).show()
-                        Log.i("Insertion", "Success")
+                        Log.i("Insertion", "Success $favDishDetails")
+                        Log.i("MYTITLE", "${favDishDetails.title}")
                         finish()
                     }
 

@@ -8,17 +8,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.dishapplication.databinding.FragmentNotificationsBinding
+import com.example.dishapplication.R
+import com.example.dishapplication.databinding.FragmentRandomDishBinding
 import com.example.dishapplication.viewmodel.NotificationsViewModel
 
-class NotificationsFragment : Fragment() {
+class RandomDishFragment : Fragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
-    private var _binding: FragmentNotificationsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,10 +24,9 @@ class NotificationsFragment : Fragment() {
         notificationsViewModel =
             ViewModelProvider(this).get(NotificationsViewModel::class.java)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val root = inflater.inflate(R.layout.fragment_random_dish,container,false)
 
-        val textView: TextView = binding.textNotifications
+        val textView: TextView = root.findViewById(R.id.text_random_dish)
         notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
@@ -40,6 +35,5 @@ class NotificationsFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 }
