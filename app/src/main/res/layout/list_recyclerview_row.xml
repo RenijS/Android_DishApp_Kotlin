@@ -9,7 +9,7 @@
         android:id="@+id/tvText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Item Name"
+        android:text="@string/item_name"
         android:textColor="#000000"
         android:textSize="@dimen/_18sdp"
         android:gravity="center"/>

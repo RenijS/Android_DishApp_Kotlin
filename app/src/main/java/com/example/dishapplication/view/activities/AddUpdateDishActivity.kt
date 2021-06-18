@@ -9,7 +9,6 @@ import android.content.ContextWrapper
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
-import android.media.audiofx.BassBoost
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,7 +18,6 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.graphics.drawable.toBitmap
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,7 +50,6 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
 import java.util.*
-import java.util.jar.Manifest
 
 class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -128,12 +125,12 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.buttonAdd ->{
-                val title = binding.etTitle.toString().trim{it <= ' '}
-                val type = binding.etType.toString().trim { it <= ' '}
-                val category = binding.etCategory.toString().trim{it <= ' '}
-                val ingredients = binding.etIngredients.toString().trim { it <= ' '}
-                val cookingTimeInMinutes = binding.etCookingTime.toString().trim{it <= ' '}
-                val cookingDirection = binding.etDirections.toString().trim { it <= ' '}
+                val title = binding.etTitle.text.toString().trim{it <= ' '}
+                val type = binding.etType.text.toString().trim { it <= ' '}
+                val category = binding.etCategory.text.toString().trim{it <= ' '}
+                val ingredients = binding.etIngredients.text.toString().trim { it <= ' '}
+                val cookingTimeInMinutes = binding.etCookingTime.text.toString().trim{it <= ' '}
+                val cookingDirection = binding.etDirections.text.toString().trim { it <= ' '}
 
                 when{
                     //checking empty or not
@@ -159,7 +156,7 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
                         Toast.makeText(this, "Dish cooking direction time not selected", Toast.LENGTH_SHORT).show()
                     }
                     else ->{
-                        val favDishDetails: FavDish = FavDish(mImagePath,
+                        val favDishDetails = FavDish(mImagePath,
                             Constants.DISH_IMAGE_SOURCE_LOCAL,
                             title,
                             type,

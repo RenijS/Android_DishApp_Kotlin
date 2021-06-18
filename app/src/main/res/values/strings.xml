@@ -3,4 +3,20 @@
     <string name="title_all_dishes">All Dishes</string>
     <string name="title_favourite_dish">Favourite</string>
     <string name="title_random_dish">Random Dish</string>
+    <string name="add">Add</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="cooking_time">Cooking Time</string>
+    <string name="category">Category</string>
+    <string name="type">Type</string>
+    <string name="title">Title</string>
+    <string name="add_image">add image</string>
+    <string name="dish_image">dish image</string>
+    <string name="fav_dish">Fav Dish</string>
+    <string name="select_image_action">Select Image Action</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="no_items_to_display">No Items To Display!</string>
+    <string name="item_title">item title</string>
+    <string name="item_name">Item Name</string>
+    <string name="item">Item</string>
 </resources>
