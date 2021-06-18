@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dishapplication.databinding.RecyclerviewDishLayoutBinding
 import com.example.dishapplication.model.entities.FavDish
+import com.example.dishapplication.view.fragments.AllDishesFragment
 
 class AllDishesAdapter(private val fragment: Fragment): RecyclerView.Adapter<AllDishesAdapter.ViewHolder>() {
 
@@ -31,6 +32,12 @@ class AllDishesAdapter(private val fragment: Fragment): RecyclerView.Adapter<All
             .into(holder.ivDish)
 
         holder.tvTitle.text = dish.title
+
+        holder.itemView.setOnClickListener {
+            if (fragment is AllDishesFragment){
+                fragment.dishDetails()
+            }
+        }
     }
 
     override fun getItemCount(): Int {
