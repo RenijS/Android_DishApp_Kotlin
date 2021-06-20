@@ -26,9 +26,14 @@
         android:name="com.example.dishapplication.view.fragments.RandomDishFragment"
         android:label="@string/title_random_dish"
         tools:layout="@layout/fragment_random_dish" />
+
     <fragment
         android:id="@+id/dishDetailFragment"
         android:name="com.example.dishapplication.view.fragments.DishDetailFragment"
         android:label="fragment_dish_detail"
-        tools:layout="@layout/fragment_dish_detail" />
+        tools:layout="@layout/fragment_dish_detail" >
+        <argument
+            android:name="dishDetails"
+            app:argType="com.example.dishapplication.model.entities.FavDish" />
+    </fragment>
 </navigation>

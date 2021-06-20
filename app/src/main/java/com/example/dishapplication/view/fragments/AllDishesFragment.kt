@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dishapplication.R
 import com.example.dishapplication.application.FavDishApplication
 import com.example.dishapplication.databinding.FragmentAllDishesBinding
+import com.example.dishapplication.model.entities.FavDish
 import com.example.dishapplication.view.activities.AddUpdateDishActivity
+import com.example.dishapplication.view.activities.MainActivity
 import com.example.dishapplication.view.adapters.AllDishesAdapter
 import com.example.dishapplication.viewmodel.FavDishViewModel
 import com.example.dishapplication.viewmodel.FavDishViewModelFactory
@@ -37,8 +39,6 @@ class AllDishesFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         setHasOptionsMenu(true)
-
-
     }
 
     override fun onCreateView(
@@ -78,8 +78,19 @@ class AllDishesFragment : Fragment() {
         _binding = null
     }
 
-    fun dishDetails(){
-        findNavController().navigate(AllDishesFragmentDirections.actionNavigationAllDishesToDishDetailFragment())
+    fun dishDetails(favDish : FavDish){
+        findNavController().navigate(AllDishesFragmentDirections.actionNavigationAllDishesToDishDetailFragment(favDish))
+
+        if (requireActivity() is MainActivity){
+            (activity as MainActivity).hideBottomNavigationView()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (requireActivity() is MainActivity){
+            (activity as MainActivity).showBottomNavigationView()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
