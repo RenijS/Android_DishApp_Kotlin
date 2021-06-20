@@ -35,7 +35,7 @@ class AllDishesAdapter(private val fragment: Fragment): RecyclerView.Adapter<All
 
         holder.itemView.setOnClickListener {
             if (fragment is AllDishesFragment){
-                fragment.dishDetails()
+                fragment.dishDetails(dish)
             }
         }
     }

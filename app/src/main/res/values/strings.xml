@@ -21,4 +21,10 @@
     <string name="item">Item</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image">image</string>
+    <string name="favourite_button">favourite button</string>
+    <string name="dish_title">Dish Title</string>
+    <string name="ingredients_list">Ingredients list</string>
+    <string name="direction_to_cook">Direction To Cook</string>
+    <string name="directions_list">Directions list</string>
 </resources>
