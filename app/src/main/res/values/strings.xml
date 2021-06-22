@@ -28,4 +28,7 @@
     <string name="direction_to_cook">Direction To Cook</string>
     <string name="directions_list">Directions list</string>
     <string name="no_favourite_dishes">No Favourite Dishes</string>
+    <string name="title_edit_dish">Edit Dish</string>
+    <string name="title_add_dish">Add Dish</string>
+    <string name="update_dish">Update</string>
 </resources>
