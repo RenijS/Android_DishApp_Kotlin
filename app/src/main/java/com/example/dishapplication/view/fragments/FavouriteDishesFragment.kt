@@ -4,19 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.dishapplication.R
 import com.example.dishapplication.application.FavDishApplication
 import com.example.dishapplication.databinding.FragmentFavouriteDishesBinding
 import com.example.dishapplication.model.entities.FavDish
 import com.example.dishapplication.view.activities.MainActivity
-import com.example.dishapplication.view.adapters.FavDishesAdapter
+import com.example.dishapplication.view.adapters.AllDishesAdapter
 import com.example.dishapplication.viewmodel.DashboardViewModel
 import com.example.dishapplication.viewmodel.FavDishViewModel
 import com.example.dishapplication.viewmodel.FavDishViewModelFactory
@@ -46,7 +42,7 @@ class FavouriteDishesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvFavDish.layoutManager = GridLayoutManager(requireContext(), 2)
-        val favDishAdapter = FavDishesAdapter(this)
+        val favDishAdapter = AllDishesAdapter(this)
         binding.rvFavDish.adapter = favDishAdapter
 
         favDishViewModel.favouriteDishes.observe(viewLifecycleOwner){

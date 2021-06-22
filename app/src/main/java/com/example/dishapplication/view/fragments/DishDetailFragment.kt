@@ -64,7 +64,7 @@ class DishDetailFragment : Fragment() {
                 e.printStackTrace()
             }
             binding.tvTitle.text =
-                it.dishDetails.type.capitalize(Locale.ROOT) // used to make first letter capital
+                it.dishDetails.title.capitalize(Locale.ROOT) // used to make first letter capital
             binding.tvCategory.text = it.dishDetails.category
             binding.tvType.text = it.dishDetails.type
             binding.tvIngredients.text = it.dishDetails.ingredients

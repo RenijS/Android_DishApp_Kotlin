@@ -15,12 +15,27 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <ImageView
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
             android:id="@+id/ivDish"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:srcCompat="@tools:sample/avatars"
             android:contentDescription="@string/dish_image" />
+
+            <ImageButton
+                android:id="@+id/ibMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_more"
+                android:foreground="?attr/selectableItemBackgroundBorderless"/>
+        </FrameLayout>
 
         <TextView
             android:id="@+id/tvTitle"
