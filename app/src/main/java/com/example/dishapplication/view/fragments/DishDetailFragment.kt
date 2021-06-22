@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.palette.graphics.Palette
 import com.bumptech.glide.Glide
@@ -15,14 +17,21 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.dishapplication.R
+import com.example.dishapplication.application.FavDishApplication
 import com.example.dishapplication.databinding.FragmentAllDishesBinding
 import com.example.dishapplication.databinding.FragmentDishDetailBinding
+import com.example.dishapplication.viewmodel.FavDishViewModel
+import com.example.dishapplication.viewmodel.FavDishViewModelFactory
 import java.io.IOException
 import java.util.*
 
 class DishDetailFragment : Fragment() {
 
     private var _binding: FragmentDishDetailBinding? = null
+
+    private val favDishViewModel: FavDishViewModel by viewModels {
+        FavDishViewModelFactory((requireActivity().application as FavDishApplication).repository)
+    }
 
     private val binding get() = _binding!!
 
@@ -49,34 +58,8 @@ class DishDetailFragment : Fragment() {
                 Glide.with(requireActivity())
                     .load(it.dishDetails.image)
                     .centerCrop()
-                    .listener(object: RequestListener<Drawable>{
-                        override fun onLoadFailed(
-                            e: GlideException?,
-                            model: Any?,
-                            target: Target<Drawable>?,
-                            isFirstResource: Boolean
-                        ): Boolean {
-                            return false
-                        }
-
-                        override fun onResourceReady(
-                            resource: Drawable?,
-                            model: Any?,
-                            target: Target<Drawable>?,
-                            dataSource: DataSource?,
-                            isFirstResource: Boolean
-                        ): Boolean {
-                            resource.let {
-                                Palette.from(resource!!.toBitmap()).generate() { palette ->
-                                    val intColor = palette?.vibrantSwatch?.rgb ?: 0
-                                    binding.rlDishDetail.setBackgroundColor(intColor)
-                                }
-                            }
-                            return true
-                        }
-
-                    })
                     .into(binding.imageView)
+
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -87,6 +70,22 @@ class DishDetailFragment : Fragment() {
             binding.tvIngredients.text = it.dishDetails.ingredients
             binding.tvDirection.text = it.dishDetails.directionToCook
             binding.tvCookingTime.text = "Cooking time: ${it.dishDetails.cookingTime}"
+            if (args.dishDetails.favouriteDish){
+                binding.imageView2.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_favourite_selected))
+            } else{
+                binding.imageView2.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_heart))
+            }
+        }
+
+        binding.imageView2.setOnClickListener {
+            args.dishDetails.favouriteDish = !args.dishDetails.favouriteDish
+            favDishViewModel.update(args.dishDetails)
+
+            if (args.dishDetails.favouriteDish){
+                binding.imageView2.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_favourite_selected))
+            } else{
+                binding.imageView2.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_heart))
+            }
         }
     }
 
