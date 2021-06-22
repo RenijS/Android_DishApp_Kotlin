@@ -13,6 +13,12 @@ class FavDishViewModel(private val repository: FavDishRepository): ViewModel() {
     }
 
     val allDishList: LiveData<List<FavDish>> = repository.allDishesList.asLiveData()
+
+    fun update(dish: FavDish) = viewModelScope.launch {
+        repository.updateFavDishData(dish)
+    }
+
+    val favouriteDishes: LiveData<List<FavDish>> = repository.favouriteDishes.asLiveData()
 }
 
 @Suppress("UNCHECKED_CAST")
