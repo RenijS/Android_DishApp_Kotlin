@@ -209,7 +209,8 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
                             ingredients,
                             cookingTimeInMinutes,
                             cookingDirection,
-                            favouriteDish
+                            favouriteDish,
+                            dishId
                         )
 
                         if (dishId == 0) {
@@ -395,7 +396,7 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.tvListTitle.text = title
         binding.rvList.layoutManager = LinearLayoutManager(this)
-        binding.rvList.adapter = ListItemAdapter(this, itemsList, selection)
+        binding.rvList.adapter = ListItemAdapter(this, null,itemsList, selection)
         mCustomListDialog.show()
     }
 

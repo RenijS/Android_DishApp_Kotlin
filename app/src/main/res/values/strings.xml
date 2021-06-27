@@ -31,4 +31,5 @@
     <string name="title_edit_dish">Edit Dish</string>
     <string name="title_add_dish">Add Dish</string>
     <string name="update_dish">Update</string>
+    <string name="filter">Filter</string>
 </resources>
