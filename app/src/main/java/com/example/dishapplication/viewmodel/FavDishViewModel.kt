@@ -19,6 +19,12 @@ class FavDishViewModel(private val repository: FavDishRepository): ViewModel() {
     }
 
     val favouriteDishes: LiveData<List<FavDish>> = repository.favouriteDishes.asLiveData()
+
+    fun delete(dish: FavDish) = viewModelScope.launch {
+        repository.deleteFavDishData(dish)
+    }
+
+    fun getFilteredList(value: String) : LiveData<List<FavDish>> = repository.filteredListDishes(value).asLiveData()
 }
 
 @Suppress("UNCHECKED_CAST")

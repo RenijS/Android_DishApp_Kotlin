@@ -3,12 +3,15 @@ package com.example.dishapplication.view.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dishapplication.databinding.ListRecyclerviewRowBinding
 import com.example.dishapplication.view.activities.AddUpdateDishActivity
+import com.example.dishapplication.view.fragments.AllDishesFragment
 
 class ListItemAdapter(private val context: Context
-, private val listItems: List<String>
+, private val fragment: Fragment?
+,private val listItems: List<String>
 , private val selection: String): RecyclerView.Adapter<ListItemAdapter.ViewHolder>() {
 
     class ViewHolder(binding: ListRecyclerviewRowBinding): RecyclerView.ViewHolder(binding.root){
@@ -27,6 +30,9 @@ class ListItemAdapter(private val context: Context
         holder.tvText.setOnClickListener {
             if (context is AddUpdateDishActivity){
                 context.selectedListItem(item, selection)
+            }
+            if (fragment is AllDishesFragment){
+                fragment.filterSelection(item)
             }
         }
     }
