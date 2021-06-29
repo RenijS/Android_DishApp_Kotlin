@@ -16,6 +16,25 @@ object Constants {
     const val ALL_ITEMS: String = "All"
     const val FILTER_SELECTION: String = "FilterSelection"
 
+    const val API_ENDPOINT: String = "recipes/random"
+
+    const val API_KEY = "apiKey"
+    const val LIMIT_LICENSE = "limitLicense"
+    const val TAGS = "tags"
+    const val NUMBER = "number"
+
+    const val BASE_URL = "https://api.spoonacular.com/"
+
+    const val LIMIT_LICENSE_VALUE: Boolean = true
+    const val TAGS_VALUE = "vegetarian, dessert"
+    const val NUMBER_VALUE = 1
+
+    const val API_KEY_VALUE = "0e488a0f5e874c1485efb7aa4695e2b3"
+
+    const val NOTIFICATION_ID = "FavDish_notification_id"
+    const val NOTIFICATION_NAME = "FavDish"
+    const val NOTIFICATION_CHANNEL = "FavDish_channel_01"
+
     fun dishTypes(): ArrayList<String>{
         val list = ArrayList<String>()
         list.add("Breakfast")
