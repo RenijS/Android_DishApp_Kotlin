@@ -70,5 +70,14 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:2.3.0"
     //Palette
     implementation 'androidx.palette:palette-ktx:1.0.0'
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+
+    implementation 'androidx.work:work-runtime-ktx:2.6.0-beta01'
 
 }

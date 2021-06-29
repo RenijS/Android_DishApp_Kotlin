@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragments.DishDetailFragment">
-
     <RelativeLayout
         android:id="@+id/rlDishDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <FrameLayout
+
+    <FrameLayout
             android:id="@+id/flDishDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
